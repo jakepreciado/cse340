@@ -3,4 +3,169 @@
 *:before,
 *:after {
   box-sizing: border-box;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  padding: 10px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.siteName {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+header a {
+  text-decoration: none;
+}
+
+nav {
+  background-color: black;
+}
+
+nav ul {
+  margin: auto;
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li {
+  margin: auto;
+  list-style: none;
+  font-size: 12px;
+  padding: 15px;
+}
+
+.hero-header {
+  margin-top: 30px;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  font-size: 18px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.459);
+  color: rgb(0, 193, 232);
+}
+
+.hero-overlay ul {
+  margin-bottom: 20px;
+}
+
+.hero-overlay ul li {
+  list-style: none;
+  font-weight: bold;
+}
+
+.hero-overlay button {
+  width: 100%;
+  font-size: 18px;
+  display: block;
+  padding: 10px;
+  place-self: center;
+  border: none;
+  background-color: rgb(0, 193, 232)
+}
+
+.hero img {
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+.car-information {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+section h2 {
+  margin-bottom: 40px;
+}
+
+.upgrade-grid {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.grid-item {
+  margin-bottom: 20px;
+}
+
+.card {
+  width: 160px;
+  height: 100px;
+  background-color: rgb(0, 193, 232);
+  border: 1px solid black;
+}
+
+.card img {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px auto;
+}
+
+section ul li {
+  margin: 20px;
+  font-size: 18px;
+}
+
+.reviews {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+@media screen and (min-width: 776px) {
+  body {
+    max-width: 1000px;
+    margin: auto;
+    background-image: url('../images/site/small_check.jpg');
+  }
+
+  #wrapper {
+    margin: 10px;
+    background-color: white;
+    padding: 20px;
+    border: 5px solid rgb(0, 193, 232);
+    border-radius: 8px;
+  }
+
+  .hero-header {
+    font-size: 36px;
+  }
+
+  nav ul li {
+    font-size: 24px;
+  }
 }
