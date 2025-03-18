@@ -146,6 +146,42 @@ section ul li {
   margin-right: 10px;
 }
 
+.vehicle-detail {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: rgba(0, 0, 0, 0.121);
+}
+
+.vehicle-image img {
+  display: block;
+  width: 360px;
+  height: auto;
+}
+
+.vehicle-info {
+  height: 100%;
+}
+
+.vehicle-info h1 {
+  background-color: rgb(0, 193, 232);
+  padding: 15px;
+}
+
+.vehicle-info p {
+  margin: 10px;
+}
+
+
+
+footer {
+  margin: 10px;
+  font-weight: bold;
+}
+
 @media screen and (min-width: 776px) {
   body {
     max-width: 1000px;
@@ -168,4 +204,15 @@ section ul li {
   nav ul li {
     font-size: 24px;
   }
+
+  .vehicle-detail {
+    flex-wrap: nowrap;
+  }
+
+  .vehicle-image img {
+    display: block;
+    width: 500px;
+    height: auto;
+  }
+
 }
