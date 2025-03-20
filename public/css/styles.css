@@ -153,7 +153,11 @@ section ul li {
   margin: auto;
   margin-top: 30px;
   margin-bottom: 30px;
-  background-color: rgba(0, 0, 0, 0.121);
+}
+
+.vehicle-image {
+  margin: auto;
+  padding: 10px;
 }
 
 .vehicle-image img {
@@ -167,15 +171,62 @@ section ul li {
 }
 
 .vehicle-info h1 {
-  background-color: rgb(0, 193, 232);
-  padding: 15px;
+  margin: 10px;
 }
 
 .vehicle-info p {
   margin: 10px;
+  margin-bottom: 20px;
+  font-size: 18px;
 }
 
+.section-header {
+  text-align: center;
+  padding: 20px;
+}
 
+#inv-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+#inv-display li a img {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border-radius: 8px 8px 0px 0px ;
+}
+
+#inv-display li {
+  margin: auto;
+  display: grid;
+  text-align: center;
+  list-style: none;
+  width: 250px;
+  height: 275px;
+  border: 1px solid rgba(0, 0, 0, 0.317);
+  border-radius: 8px;
+}
+
+.namePrice {
+  align-self: end;
+  height: 100px;
+}
+
+.namePrice h3,
+.namePrice span {
+  margin: 10px;
+}
+
+.namePrice h2 a {
+  width: 100%;
+}
+
+.namePrice span {
+  font-size: 18px;
+  font-weight: bold;
+}
 
 footer {
   margin: 10px;
@@ -213,6 +264,11 @@ footer {
     display: block;
     width: 500px;
     height: auto;
+  }
+
+  .section-header {
+    text-align: left;
+    padding: 20px;
   }
 
 }
