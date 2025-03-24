@@ -1,29 +1,27 @@
-<div class="container">
-    <!-- Use the title data value for the heading -->
-    <h1><%= title %></h1>
+<h1></h1>
+    <%= title %>
+</h1>
 
-    <!-- Display flash message if it exists -->
-    <% if (typeof flashMessage !== 'undefined') { %>
-        <div class="flash-message">
-            <p><%= flashMessage %></p>
-        </div>
+<% if (typeof flashMessage !=='undefined' ) { %>
+    <div class="flash-message">
+        <p>
+            <%= flashMessage %>
+        </p>
+    </div>
     <% } %>
 
-    <!-- Login form -->
-    <form action="/account/login" method="POST">
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <div class="form-group">
-            <button type="submit">Login</button>
-        </div>
-    </form>
+        <form action="/account/login" method="POST">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Login</button>
+            </div>
+        </form>
 
-    <!-- Link to registration page -->
-    <p>Don't have an account? <a href="/account/register">Register here</a>.</p>
-</div>
+        <p>Don't have an account? <a href="/account/register">Register here</a>.</p>
