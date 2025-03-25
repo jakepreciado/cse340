@@ -5,8 +5,9 @@
 <% if (typeof flashMessage !=='undefined' ) { %>
     <div class="flash-message">
         <p>
-            <%- messages() %>
+            <%= flashMessage %>
         </p>
+        <%= messages() %>
         <% if (errors) { %>
             <ul class="notice">
                 <% errors.array().forEach(error=> { %>
@@ -17,7 +18,7 @@
             </ul>
             <% } %>
     </div>
-    <% } %>
+<% } %>
 
         <form id="loginForm" action="/account/login" method="post">
             <div class="form-group">
