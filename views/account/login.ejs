@@ -1,4 +1,4 @@
-<h1>
+<h1 class="login-title">
     <%= title %>
 </h1>
 
@@ -20,28 +20,31 @@
     </div>
 <% } %>
 
-        <form id="loginForm" action="/account/login" method="post">
-            <div class="form-group">
-                <label for="account_email">Email:</label>
-                <input type="email" id="accountEmail" name="account_email" required>
-            </div>
-            <div class="form-group">
-                <label for="account_password">Password:</label>
-                <input pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" type="password"
-                    id="accountPassword" name="account_password" required>
-                <div>
-                    <p>Password Requirements:</p>
-                    <ul>
-                        <li>At least 12 characters</li>
-                        <li>1 number</li>
-                        <li>1 capital letter</li>
-                        <li>1 special character</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="form-group">
-                <button type="submit">Login</button>
-            </div>
-        </form>
+<div class="login-form">
+    <form id="loginForm" action="/account/login" method="post">
+        <div class="form-group">
+            <label for="account_email">Email</label>
+            <input type="email" id="accountEmail" name="account_email" required>
+        </div>
+        <div class="form-group">
+            <label for="account_password">Password</label>
+            <input pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" type="password"
+                id="accountPassword" name="account_password" required>
+        </div>
+        <div class="form-group">
+            <p>Password Requirements</p>
+            <ul>
+                <li>At least 12 characters</li>
+                <li>1 number</li>
+                <li>1 capital letter</li>
+                <li>1 special character</li>
+            </ul>
+        </div>
+        <div class="form-group">
+            <button type="submit">Login</button>
+        </div>
+    </form>
 
-        <p>Don't have an account? <a href="/account/register">Register here</a>.</p>
+    <p>Don't have an account? <a href="/account/register">Register here</a>.</p>
+</div>
+

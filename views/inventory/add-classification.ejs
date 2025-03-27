@@ -1,6 +1,6 @@
 <!-- Page Heading -->
 <% if (title) { %>
-    <h1><%= title %></h1>
+    <h1 class="add-classification-title"><%= title %></h1>
 <% } else { res.redirect('/') } %>
 
 <!-- Flash Messages -->
@@ -19,19 +19,18 @@
     </ul>
 <% } %>
 
-<form id="addClassificationForm" action="/inv/add-classification" method="POST">
-    <fieldset>
-      <legend>Add a New Classification</legend>
-      <label for="classification_name">Classification Name:</label>
-      <input 
-        type="text" 
-        id="classificationName" 
-        name="classification_name" 
-        placeholder="Enter Classification" 
-        required 
-        pattern="[A-Za-z]+" 
-        title="Please enter one or more alphabetic characters only. No spaces or special characters allowed."
-      >
-      <button type="submit" id="submit">Add Classification</button>
-    </fieldset>
-  </form>
+<div class="add-classification">
+    <form id="addClassificationForm" action="/inv/add-classification" method="POST">   
+        <label for="classification_name">Classification Name</label>
+        <input 
+            type="text" 
+            id="classificationName" 
+            name="classification_name" 
+            placeholder="Enter Classification" 
+            required 
+            pattern="[A-Za-z]+" 
+            title="Please enter one or more alphabetic characters only. No spaces or special characters allowed."
+        >
+        <button type="submit" id="submit">Add Classification</button>       
+    </form>
+</div>
