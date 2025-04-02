@@ -1,6 +1,7 @@
 /* ***********************
  * Require Statements
  *************************/
+const cookieParser = require("cookie-parser")
 const bodyParser = require("body-parser")
 const session = require("express-session")
 const pool = require('./database/')
@@ -12,7 +13,7 @@ const expressLayouts = require("express-ejs-layouts")
 const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoute")
 const errorRoute = require("./routes/intentionalError")
-const utilities = require('./utilities/index')
+const utilities = require('./utilities/')
 const accountRoute = require('./routes/accountRoute')
 
 /* ***********************
@@ -38,6 +39,8 @@ app.use(function(req, res, next){
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cookieParser())
+app.use(utilities.checkJWTToken)
 
 /* ***********************
  * View Engine and Templates

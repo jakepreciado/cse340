@@ -1,0 +1,30 @@
+<h1 class="login-title">
+    <%= title %>
+</h1>
+
+<% if (typeof flashMessage !=='undefined' ) { %>
+    <div class="flash-message">
+        <p>
+            <%= flashMessage %>
+        </p>
+        <%= messages() %>
+        <% if (errors) { %>
+            <ul class="notice">
+                <% errors.array().forEach(error=> { %>
+                    <li>
+                        <%= error.msg %>
+                    </li>
+                    <% }) %>
+            </ul>
+            <% } %>
+    </div>
+<% } %>
+<main>
+  <% if (messages.success) { %>
+    <div class="flash-success"><%= messages.success %></div>
+  <% } %>
+  <% if (messages.error) { %>
+    <div class="flash-error"><%= messages.error %></div>
+  <% } %>
+  <p>You're logged in.</p>
+</main>
