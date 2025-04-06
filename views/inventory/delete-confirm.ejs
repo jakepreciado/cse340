@@ -1,0 +1,29 @@
+<% if (title) { %>
+    <h1 class="edit-inventory-title">
+      <%= title %>
+    </h1>
+  <% } else { res.redirect('/') } %>
+  
+  <%- messages() %>
+  
+  <!-- Display validation errors -->
+  <% if (errors && errors.length > 0) { %>
+    <ul class="notice">
+      <% errors.forEach(error => { %>
+        <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+<div>
+    <h1>Delete Inventory Item</h1>
+    <p>Confirm Deletion - The delete is permanent.</p>
+    <form action="/inv/delete/<%= inventory.inv_id %>" method="post">
+        <p><strong>Make:</strong> <%= inventory.inv_make %></p>
+        <p><strong>Model:</strong> <%= inventory.inv_model %></p>
+        <p><strong>Year:</strong> <%= inventory.inv_year %></p>
+        <p><strong>Price:</strong> $<%= inventory.inv_price %></p>
+
+        <input type="hidden" name="inv_id" value="<%= inventory.inv_id %>">
+        <input type="submit" value="Delete">
+    </form>
+</div>

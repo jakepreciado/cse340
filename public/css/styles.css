@@ -323,6 +323,88 @@ footer {
   margin: 20px;
 }
 
+#tools {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+#tools a {
+  margin: 10px;
+}
+
+.account-management-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: rgba(0, 193, 232, 0.475);
+  margin: auto;
+  max-width: 400px;
+  padding: 20px;
+  text-align: center;
+}
+
+.manage-inventory {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: rgba(0, 193, 232, 0.475);
+  margin: auto;
+  max-width: 400px;
+  padding: 20px;
+  text-align: center;
+}
+
+.inventory-table {
+  justify-self: center;
+}
+
+.account-management-menu div {
+  margin: 10px;
+}
+
+.account-update-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: rgba(0, 193, 232, 0.475);
+  margin: auto;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.change-password-form form,
+.account-update-form form {
+  text-align: center;
+}
+
+.account-update-form h2,
+.change-password-form h2 {
+  text-align: center;
+}
+.account-update-form form div {
+  margin: 10px;
+}
+
+.button {
+  margin-top: 5px;
+  padding: 7px;
+}
+.change-password-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: rgba(0, 193, 232, 0.475);
+  margin: auto;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.change-password-form p {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
 @media screen and (min-width: 776px) {
 
   body {

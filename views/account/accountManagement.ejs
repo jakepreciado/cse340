@@ -19,12 +19,33 @@
             <% } %>
     </div>
 <% } %>
-<main>
+<div class="account-management-menu">
   <% if (messages.success) { %>
     <div class="flash-success"><%= messages.success %></div>
   <% } %>
   <% if (messages.error) { %>
     <div class="flash-error"><%= messages.error %></div>
   <% } %>
-  <p>You're logged in.</p>
-</main>
+
+  <% if (accountData) { %>
+    <div>
+      <h2>Welcome <%= accountData.account_firstname %></h2>
+      <p>
+        <a href="/account/update/<%= accountData.account_id %>" title="Update your account information">
+          Update Account Information
+        </a>
+      </p>
+    </div>
+
+    <% if (accountData.account_type === "Employee" || accountData.account_type === "Admin") { %>
+    <div>
+      <h2>Inventory Management</h2>
+      <p>
+        <a href="/inv/" title="Access the Inventory Management view">Manage Inventory</a>
+      </p>
+    </div>
+    <% } %>
+  <% } else { %>
+    <p>You are not logged in. Please <a href="/account/login">log in</a>.</p>
+  <% } %>
+  </div>

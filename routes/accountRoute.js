@@ -8,6 +8,8 @@ router.get("/", utilities.checkLogin, utilities.handleErrors(accountController.b
 router.get("/login", utilities.handleErrors(accountController.buildLogin));
 router.get("/register", utilities.handleErrors(accountController.buildRegister));
 
+router.get("/logout", utilities.handleErrors(accountController.accountLogout));
+
 // Process the registration data
 router.post(
   "/register",
@@ -23,5 +25,26 @@ router.post(
   regValidate.checkLoginData,
   utilities.handleErrors(accountController.accountLogin)
 )
+
+router.get("/update/:accountId", utilities.handleErrors(accountController.buildUpdateAccountView));
+
+router.post(
+  "/update",
+  (req, res, next) => {
+    console.log("Route hit: /account/update");
+    next();
+  },
+  regValidate.updateRules(),
+  regValidate.checkUpdateData,
+  utilities.handleErrors(accountController.updateAccount)
+);
+router.post(
+  "/update-password",
+  regValidate.updatePasswordRules(),
+  regValidate.checkUpdatePasswordData,
+  utilities.handleErrors(accountController.updatePassword)
+);
+
+
 
 module.exports = router;

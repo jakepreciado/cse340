@@ -15,10 +15,16 @@ const inventoryRoute = require("./routes/inventoryRoute")
 const errorRoute = require("./routes/intentionalError")
 const utilities = require('./utilities/')
 const accountRoute = require('./routes/accountRoute')
+const jwt = require("jsonwebtoken");
 
 /* ***********************
  * Middleware
  * ************************/
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cookieParser())
+app.use(utilities.checkJWTToken)
+
 app.use(session({
   store: new (require('connect-pg-simple')(session))({
     createTableIfMissing: true,
@@ -37,10 +43,27 @@ app.use(function(req, res, next){
   next()
 })
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(cookieParser())
-app.use(utilities.checkJWTToken)
+app.use((req, res, next) => {
+  const token = req.cookies.authToken; // Access cookies here
+  // Check if the token exists and is valid
+  if (token) {
+    try {
+      const decoded = jwt.verify(token, "your-secret-key");
+      res.locals.loggedIn = true;
+      res.locals.clientName = decoded.name; // Assuming the JWT contains the client's name
+    } catch (error) {
+      console.error("Invalid token:", error);
+      res.locals.loggedIn = false;
+      res.locals.clientName = null;
+    }
+  } else {
+    res.locals.loggedIn = false;
+    res.locals.clientName = null;
+  }
+
+  next();
+});
+
 
 /* ***********************
  * View Engine and Templates

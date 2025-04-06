@@ -1,26 +1,32 @@
 <% if (title) { %>
-<h1 class="inventory-management-title"><%= title %></h1>
-<% } else { res.redirect('/') } %>
+  <h1 class="inventory-management-title">
+    <%= title %>
+  </h1>
+  <% } else { res.redirect('/') } %>
 
-<!-- Message Block -->
-<% if (flashMessage && flashMessage.length > 0) { %>
-    <ul class="flash-messages">
-      <% flashMessage.forEach(message => { %>
-        <li><%= message %></li>
-      <% }) %>
-    </ul>
-  <% } %>
-
-        <div class="management-links">
+    <!-- Message Block -->
+    <% if (flashMessage && flashMessage.length> 0) { %>
+      <ul class="flash-messages">
+        <% flashMessage.forEach(message=> { %>
+          <li>
+            <%= message %>
+          </li>
+          <% }) %>
+      </ul>
+      <% } %>
+        <div>
+          <div class="management-links">
             <a href="/inv/add-classification" class="btn">Add New Classification</a>
             <a href="/inv/add-inventory" class="btn">Add New Inventory</a>
+          </div>
+          <div class="manage-inventory">
+            <h2>Manage Inventory</h2>
+            <p>Select a classification from the list to see the items belonging to the classification.</p>
+            <div>
+              <%- classificationSelect %>
+            </div>
+          </div>
+          <table class="inventory-table" id="inventoryDisplay"></table>
         </div>
-
-        <h2>Manage Inventory</h2>
-        <p>Select a classification from the list to see the items belonging to the classification.</p>
-        <div>
-            <%- classificationSelect %>
-        </div>
-        <table id="inventoryDisplay"></table>
         <noscript>JavaScript must be enabled to use this page.</noscript>
         <script src="../../js/inventory.js"></script>

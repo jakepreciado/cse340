@@ -1,24 +1,19 @@
-<h1 class="login-title">
-    <%= title %>
-</h1>
-
-<% if (typeof flashMessage !=='undefined' ) { %>
-    <div class="flash-message">
-        <p>
-            <%= flashMessage %>
-        </p>
-        <%= messages() %>
-        <% if (errors) { %>
-            <ul class="notice">
-                <% errors.array().forEach(error=> { %>
-                    <li>
-                        <%= error.msg %>
-                    </li>
-                    <% }) %>
-            </ul>
-            <% } %>
-    </div>
-<% } %>
+<% if (title) { %>
+    <h1 class="edit-inventory-title">
+      <%= title %>
+    </h1>
+  <% } else { res.redirect('/') } %>
+  
+  <%- messages() %>
+  
+  <!-- Display validation errors -->
+  <% if (errors && errors.length > 0) { %>
+    <ul class="notice">
+      <% errors.forEach(error => { %>
+        <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+  <% } %>
 
 <div class="login-form">
     <form id="loginForm" action="/account/login" method="post">
