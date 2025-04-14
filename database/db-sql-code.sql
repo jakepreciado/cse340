@@ -246,3 +246,17 @@ WHERE inv_make = 'GM' AND inv_model = 'Hummer';
 UPDATE inventory
 SET inv_image = REPLACE(inv_image, '/images/', '/images/vehicles/'),
     inv_thumbnail = REPLACE(inv_thumbnail, '/images/', '/images/vehicles/');
+
+CREATE TABLE IF NOT EXISTS public.appointments (
+    appointment_id SERIAL PRIMARY KEY,
+    account_id INT NOT NULL,
+    inv_id INT NOT NULL,
+    appointment_date TIMESTAMP NOT NULL,
+    appointment_status VARCHAR(20) DEFAULT 'Pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_account FOREIGN KEY (account_id)
+        REFERENCES public.account (account_id) ON DELETE CASCADE,
+    CONSTRAINT fk_inventory FOREIGN KEY (inv_id)
+        REFERENCES public.inventory (inv_id) ON DELETE CASCADE
+);
+

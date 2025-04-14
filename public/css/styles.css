@@ -195,7 +195,7 @@ section ul li {
   width: 100%;
   height: auto;
   margin: 0;
-  border-radius: 8px 8px 0px 0px ;
+  border-radius: 8px 8px 0px 0px;
 }
 
 #inv-display li {
@@ -244,7 +244,7 @@ footer {
 }
 
 .login-form p,
-.register-form p{
+.register-form p {
   text-align: center;
 }
 
@@ -306,6 +306,7 @@ footer {
   margin-bottom: 10px;
   text-align: center;
 }
+
 .edit-inventory button,
 .form-group button,
 .add-inventory button {
@@ -382,6 +383,7 @@ footer {
 .change-password-form h2 {
   text-align: center;
 }
+
 .account-update-form form div {
   margin: 10px;
 }
@@ -390,6 +392,7 @@ footer {
   margin-top: 5px;
   padding: 7px;
 }
+
 .change-password-form {
   display: flex;
   flex-direction: column;
@@ -403,6 +406,11 @@ footer {
 .change-password-form p {
   text-align: center;
   margin-bottom: 15px;
+}
+
+.appointments-list {
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (min-width: 776px) {

@@ -1,0 +1,39 @@
+<h1 class="login-title">
+  <%= title %>
+</h1>
+
+<% if (typeof flashMessage !=='undefined' ) { %>
+  <div class="flash-message">
+      <p>
+          <%= flashMessage %>
+      </p>
+      <%= messages() %>
+      <% if (errors) { %>
+          <ul class="notice">
+              <% errors.array().forEach(error=> { %>
+                  <li>
+                      <%= error.msg %>
+                  </li>
+                  <% }) %>
+          </ul>
+          <% } %>
+  </div>
+<% } %>
+<section>
+    <% if (appointments.length > 0) { %>
+      <ul class="appointments-list">
+        <% appointments.forEach(appointment => { %>
+          <li>
+            <p><strong>Vehicle:</strong> <%= appointment.inv_make %> <%= appointment.inv_model %></p>
+            <p><strong>Date:</strong> <%= new Date(appointment.appointment_date).toLocaleString() %></p>
+            <form action="/appointments/cancel" method="POST" class="cancel-form">
+              <input type="hidden" name="appointment_id" value="<%= appointment.appointment_id %>">
+              <button type="submit" class="cancel-button">Cancel Appointment</button>
+            </form>
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p class="appointments-list">You have no scheduled appointments.</p>
+    <% } %>
+  </section>

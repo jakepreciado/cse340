@@ -16,6 +16,7 @@ const errorRoute = require("./routes/intentionalError")
 const utilities = require('./utilities/')
 const accountRoute = require('./routes/accountRoute')
 const jwt = require("jsonwebtoken");
+const appointmentRoute = require("./routes/appointmentRoute");
 
 /* ***********************
  * Middleware
@@ -43,14 +44,15 @@ app.use(function(req, res, next){
   next()
 })
 
+// Middleware to decode JWT and store account_id in session
 app.use((req, res, next) => {
-  const token = req.cookies.authToken; // Access cookies here
-  // Check if the token exists and is valid
+  const token = req.cookies.jwt; // Access the JWT from cookies
   if (token) {
     try {
-      const decoded = jwt.verify(token, "your-secret-key");
+      const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET); // Use your secret key
+      req.session.account_id = decoded.account_id; // Store account_id in the session
       res.locals.loggedIn = true;
-      res.locals.clientName = decoded.name; // Assuming the JWT contains the client's name
+      res.locals.clientName = decoded.account_firstname; // Assuming the JWT contains the client's name
     } catch (error) {
       console.error("Invalid token:", error);
       res.locals.loggedIn = false;
@@ -60,7 +62,6 @@ app.use((req, res, next) => {
     res.locals.loggedIn = false;
     res.locals.clientName = null;
   }
-
   next();
 });
 
@@ -85,10 +86,13 @@ app.get("/", utilities.handleErrors(baseController.buildHome))
 app.use("/inv", inventoryRoute)
 // Account routes
 app.use("/account", accountRoute)
+// Appointment routes
+app.use("/appointments", appointmentRoute);
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
   next({ status: 404, message: 'Sorry, we appear to have lost that page.' })
 })
+
 
 /* ***********************
  * Local Server Information

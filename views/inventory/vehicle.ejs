@@ -22,3 +22,13 @@
         </p>
     </div>
 </div>
+
+<section>
+    <h2>Schedule a Test Drive</h2>
+    <form action="/appointments/schedule" method="POST">
+      <input type="hidden" name="inv_id" value="<%= vehicle.inv_id %>">
+      <label for="appointment_date">Choose a Date and Time:</label>
+      <input type="datetime-local" name="appointment_date" id="appointment_date" required>
+      <button type="submit">Schedule Appointment</button>
+    </form>
+</section>
